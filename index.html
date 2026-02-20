@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeFlow ArtFrame - User Guide</title>
+    <meta property="og:title" content="VibeFlow ArtFrame User Guide">
+    <meta property="og:description" content="Setup and usage instructions for the VibeFlow ArtFrame E-Ink display.">
+    <meta property="og:image" content="cover_image.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: #333;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            font-size: 10pt;
+        }
+        
+        /* Cover Page Styling */
+        .cover {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #eee;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-weight: 800;
+            font-size: 2.2em;
+            margin: 0;
+            color: #2c3e50;
+            letter-spacing: -1px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            margin-top: 5px;
+            font-weight: 300;
+        }
+
+        /* Content Columns */
+        .content-columns {
+            column-count: 2;
+            column-gap: 40px;
+            column-fill: auto;
+        }
+
+        /* Section Styling */
+        h2 {
+            color: #2980b9;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 8px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.4em;
+            break-after: avoid;
+        }
+        
+        h2:first-child { margin-top: 0; }
+        
+        h3 {
+            color: #34495e;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            break-after: avoid;
+        }
+        
+        p { margin-bottom: 8px; }
+
+        /* Components */
+        .step-box {
+            background: #f8f9fa;
+            border-left: 5px solid #2980b9;
+            padding: 10px 15px;
+            margin: 10px 0;
+            border-radius: 0 8px 8px 0;
+            break-inside: avoid;
+        }
+        
+        .wifi-card {
+            background: #e8f4fd;
+            border: 1px solid #b6e0fe;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 10px 0;
+            break-inside: avoid;
+        }
+        
+        .wifi-ssid { font-weight: bold; font-size: 1.1em; display: block; }
+        .wifi-pass { font-family: monospace; background: #fff; padding: 2px 6px; border-radius: 4px; color: #d63031; }
+
+        .note {
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 0.9em;
+            margin-top: 10px;
+            break-inside: avoid;
+        }
+
+        ul, ol { padding-left: 20px; margin-bottom: 10px; }
+        li { margin-bottom: 4px; }
+        
+        /* Prevent awkward breaks */
+        .step-box, .wifi-card, p, li { break-inside: avoid; }
+
+        .print-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #2c3e50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.2s;
+            z-index: 1000;
+            font-family: 'Inter', sans-serif;
+        }
+        .print-btn:hover { transform: translateY(-2px); background: #34495e; }
+
+        /* Print Optimizations */
+        @media print {
+            @page { size: letter; margin: 0.4in; }
+            body { padding: 0; }
+            .cover { padding-top: 20px; padding-bottom: 20px; border-bottom: 2px solid #eee; }
+            a { text-decoration: none; color: #000; }
+            .content-columns { column-count: 2; }
+            .print-btn { display: none; }
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #aaa;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+            break-inside: avoid;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Print Guide</button>
+
+    <div class="cover">
+        <img src="cover_image.png" alt="VibeFlow ArtFrame" style="max-width: 50%; height: auto; margin-bottom: 15px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <h1>VibeFlow ArtFrame</h1>
+        <div class="subtitle">User Guide & Setup Manual</div>
+    </div>
+
+    <div class="content-columns">
+    <h2>🚀 Getting Started</h2>
+    
+    <h3>1. Power On</h3>
+    <p>Plug in your frame using the provided power adapter. The screen may flash black and white several times as it initializes. This is normal behavior for E-Ink displays.</p>
+
+    <h3>2. Connect to Wi-Fi</h3>
+    <p>If this is your first time using the frame, the screen will display a QR Code and the text <strong>"Scan Me"</strong>.</p>
+    
+    <div class="step-box">
+        <strong>Setup Steps:</strong>
+        <ol>
+            <li>Use your phone or computer to search for a new Wi-Fi network.</li>
+            <li>Connect to the network named:</li>
+        </ol>
+        <div class="wifi-card">
+            <span class="wifi-ssid">VibeFlowFrame-Setup</span><br>
+            Password: <span class="wifi-pass">VibeFlowFrame1111$</span>
+        </div>
+        <ol start="3">
+            <li>Once connected, a setup page should open automatically. If not, open a browser and go to <a href="http://10.42.0.1">http://10.42.0.1</a></li>
+            <li>Select your home Wi-Fi network from the list, enter your password, and tap <strong>Connect</strong>.</li>
+        </ol>
+    </div>
+    <p>The frame will reboot and connect to your internet automatically.</p>
+
+    <h2>🎨 Using the Frame</h2>
+    <p>Once connected, you can control the frame using any device on the same Wi-Fi network.</p>
+    
+    <h3>Accessing the Dashboard</h3>
+    <p>Open a web browser and navigate to <a href="http://artframeone.local">http://artframeone.local</a></p>
+
+    <h3>Dashboard Features</h3>
+    <ul>
+        <li><strong>Timer:</strong> Shows when the next artwork will be generated.</li>
+        <li><strong>Battery:</strong> Displays current battery level and charging status.</li>
+        <li><strong>Generate Now:</strong> Instantly creates a new image based on your settings.</li>
+        <li><strong>Upload:</strong> Send your own photos to be displayed on the frame.</li>
+    </ul>
+
+    <h3>Customizing Art</h3>
+    <p>By default, the frame picks random art styles. To customize:</p>
+    <ul>
+        <li><strong>Custom Prompt:</strong> Type a subject (e.g., "A futuristic city") and click <em>Generate Now</em>.</li>
+        <li><strong>Save Prompt:</strong> Click <em>Save Prompt Only</em> to keep that subject for future automatic updates.</li>
+    </ul>
+
+    <h3>Uploading Your Own Photos</h3>
+    <p>You can display personal photos from your phone or computer:</p>
+    <ol>
+        <li>Scroll down to the <strong>Upload Image</strong> section on the dashboard.</li>
+        <li>Tap <strong>Tap to Select Image</strong> and choose a photo from your gallery or camera.</li>
+        <li>Click <strong>Upload & Adjust ➡️</strong>.</li>
+        <li><strong>Crop & Zoom:</strong> A tool will appear allowing you to pinch-to-zoom or drag the image to fit the frame perfectly.</li>
+        <li>Tap <strong>Save & Display</strong> to send it to the frame immediately.</li>
+    </ol>
+
+    <h2>⚙️ Settings</h2>
+    <p>Click the <strong>⚙️ Settings</strong> link at the top of the dashboard.</p>
+    <ul>
+        <li><strong>Update Interval:</strong> Choose how often the art changes (e.g., every 4 Hours).</li>
+        <li><strong>Quiet Hours:</strong> Pause generation at night (e.g., 10 PM to 7 AM) to save battery.</li>
+        <li><strong>Display:</strong> Toggle <em>Dark Mode</em> for the UI or change <em>Orientation</em> (Landscape/Portrait).</li>
+        <li><strong>Factory Reset:</strong> Wipes all Wi-Fi settings and restores the frame to setup mode.</li>
+    </ul>
+
+    <h2>🔋 Battery & Care</h2>
+    <ul>
+        <li><strong>Charging:</strong> A lightning bolt ⚡ appears on the dashboard when plugged in.</li>
+        <li><strong>Low Battery:</strong> If battery drops below 10%, a warning appears on screen. Charge immediately.</li>
+        <li><strong>Screen Care:</strong> E-Ink screens retain images without power. Do not apply pressure to the screen.</li>
+    </ul>
+    </div>
+
+    <div class="footer">
+        VibeFlow ArtFrame &copy; 2026<br>
+        Made with ❤️ for Planet Earth 🌍 by <a href="https://x.com/iyergkris">iyergkris</a>
+    </div>
+
+</body>
+</html>
